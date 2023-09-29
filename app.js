@@ -10,7 +10,7 @@ const port = 3000;
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Admin:<password>@cluster0.ivmippx.mongodb.net/Document', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Admin:Admi1234@cluster0.ivmippx.mongodb.net/Document', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
