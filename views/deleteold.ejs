@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Documents</title>
+</head>
+<body>
+  <h1>Click on the File to Delete it...</h1>
+  <ul>
+    <% documents.forEach(document => { %>
+        <li>
+          <a href="#" onclick="confirmDelete('<%= document._id %>', '<%= document.name %>')"><%= document.name %></a>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/">Back to Upload</a>
+  
+    <script>
+      function confirmDelete(documentId, documentName) {
+        if (confirm(`Are you sure you want to delete "${documentName}"?`)) {
+          // If the user clicks "OK" in the confirmation dialog, proceed with the deletion.
+          window.location.href = `/delete/${documentId}`;
+        } else {
+          // If the user clicks "Cancel," do nothing.
+        }
+      }
+    </script>
+  </body>
+  </html> 
+  
+  
