@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Documents</title>
+  <style>
+    /* Style for the popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Style for the popup content */
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click on the File to Delete it...</h1>
+  <ul>
+    <% documents.forEach(document => { %>
+      <li>
+        <a href="#" onclick="openPopup('<%= document._id %>', '<%= document.name %>')"><%= document.name %></a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/">Back to Upload</a>
+
+  <!-- Popup container -->
+  <div class="popup" id="deletePopup">
+    <div class="popup-content">
+      <p>Are you sure you want to delete "<span id="documentName"></span>"?</p>
+      <button onclick="confirmDelete()">Delete</button>
+      <button onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(documentId, documentName) {
+      // Set the document name in the popup
+      document.getElementById("documentName").textContent = documentName;
+      this.documentId=documentId;
+      
+      // Display the popup
+      document.getElementById("deletePopup").style.display = "block";
+    }
+
+    function closePopup() {
+      // Close the popup
+      document.getElementById("deletePopup").style.display = "none";
+    }
+
+    function confirmDelete() {
+      // Redirect to the delete route
+      window.location.href = `/delete/${this.documentId}`;
+    }
+  </script>
+</body>
+</html>
