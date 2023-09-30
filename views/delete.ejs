@@ -7,6 +7,20 @@
   <title>Delete Documents</title>
   <style>
     /* Style for the popup */
+    body{
+      margin: 0px;
+      padding: 0px;
+      background-color: rgb(234, 219, 248);
+    }
+
+    h1{
+      margin: 0px;
+      padding: 10px;
+      background-color: blueviolet;
+      font-size: 35px;
+      color: #fff;
+      text-align: center;
+    }
     .popup {
       display: none;
       position: fixed;
@@ -27,18 +41,47 @@
       border-radius: 5px;
       text-align: center;
     }
+    ul {
+  list-style: none;
+  margin: 0; /* Add this line to remove default margin */
+  padding: 0; /* Add this line to remove default padding */
+}
+    li{
+      list-style: none;
+      background-color: red;
+      padding: 7px;
+      border-radius: 5px;
+      width: 90%;
+      margin: auto;
+      margin-top: 7px;
+    }
+    ul a{
+      color: #fff;
+      text-decoration: none;
+    }
+    .container{
+      max-width: 500px;
+      margin: auto;
+    }
+    .backbutton{
+      background-color: green;
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+      margin-left: 5px;
+    }
   </style>
 </head>
 <body>
   <h1>Click on the File to Delete it...</h1>
+  <div class="container">
   <ul>
     <% documents.forEach(document => { %>
-      <li>
-        <a href="#" onclick="openPopup('<%= document._id %>', '<%= document.name %>')"><%= document.name %></a>
-      </li>
+        <a href="#" onclick="openPopup('<%= document._id %>', '<%= document.name %>')"><li><%= document.name %></li></a>
     <% }); %>
   </ul>
-  <a href="/">Back to Upload</a>
+</div>
+  <a href="/" class="backbutton">Back to Upload</a>
 
   <!-- Popup container -->
   <div class="popup" id="deletePopup">
