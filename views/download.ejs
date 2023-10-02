@@ -20,7 +20,7 @@
 
     /* Style the header */
     h1 {
-      background-color: #0077b6; /* A deep blue for the header background */
+      background-color: #6062cb; /* A deep blue for the header background */
       color: #fff;
       padding: 20px 0;
     }
@@ -38,7 +38,7 @@
     /* Style the document links */
     a {
       display: inline-block;
-      background-color: #0077b6; /* A deep blue for trustworthiness */
+      background-color: #3267bc; /* A deep blue for trustworthiness */
       color: #fff;
       text-decoration: none;
       padding: 10px 20px;
@@ -47,17 +47,24 @@
     }
 
     a:hover {
-      background-color: #005d91; /* Darker blue on hover */
+      background-color: #3267bc; /* Darker blue on hover */
     }
 
-    /* Style the "Back to Upload" link */
     a.back-link {
-      display: block;
-      margin-top: 20px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+      margin: 0 10px;
+            padding: 10px 25px;
+            background-color: #3267bc; 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.128);
     }
+    a.back-link:hover {
+            background-color: #3267bc;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
   </style>
 </head>
 <body>
@@ -69,6 +76,8 @@
       </li>
     <% }); %>
   </ul>
-  <a href="/" class="back-link">Back to Upload</a>
+  <div class="back-link">
+    <a href="/">back to upload</a>
+  </div>
 </body>
 </html>
